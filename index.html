@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TikTok LIVE Rewards</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .phone-container {
+      width: 320px;
+      background: #121212;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(255,0,80,0.3);
+      text-align: center;
+    }
+    .search-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #333;
+      background: #222;
+      color: #fff;
+      font-size: 14px;
+    }
+    button {
+      background: #fe2c55;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .profile-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #1e1e1e;
+      padding: 12px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .profile-pic {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #333;
+    }
+    .username {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .rewards-box {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    .amount {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      margin: 10px 0;
+    }
+    .btn-withdraw {
+      background: #fe2c55;
+      color: white;
+      width: 100%;
+      padding: 12px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="phone-container">
+  <div class="search-bar">
+    <input type="text" id="userInput" placeholder="Enter TikTok handle">
+    <button onclick="fetchProfile()">Search</button>
+  </div>
+
+  <div class="profile-section">
+    <img id="pfp" class="profile-pic" src="https://via.placeholder.com/150" alt="Avatar">
+    <div class="username" id="handleDisplay">@search_someone</div>
+  </div>
+
+  <div class="rewards-box">
+    <div style="color: #aaa; font-size: 12px;">Available Rewards</div>
+    <div class="amount">$977,932,636.25</div>
+    <button class="btn-withdraw">Withdraw</button>
+  </div>
+</div>
+
+<script>
+  function fetchProfile() {
+    const input = document.getElementById('userInput').value.trim().replace('@', '');
+    if (!input) return;
+
+    const avatarUrl = `https://unavatar.io/tiktok/${input}`;
+    
+    document.getElementById('pfp').src = avatarUrl;
+    document.getElementById('handleDisplay').innerText = `@${input}`;
+  }
+</script>
+
+</body>
+</html>
